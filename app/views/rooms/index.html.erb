@@ -1,6 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Rooms</h1>
+<div id="mypseudos">
+  <%@pseudos.each do |p|%>
+    <article data-pseudo-id="<%=p.pseudoid%>">
+      <img src="/uploads/<%=p.image%>" width=50 height=50 />
+      <p><%=p.username%></p>
+      <p><%=p.pseudobody%></p>
+    </article>
+  <%end%>
+</div>
+
 
 <div id="rooms">
   <% @rooms.each do |room| %>

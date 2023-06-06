@@ -8,16 +8,22 @@
     <%=action_cable_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%=link_to "BIENVENUE",root_path%>
     <%=link_to "connexion","/users/sign_in"%>
     <%=link_to "inscription","/users/sign_up"%>
+    <%=link_to "editer mon profile","/users/sign_up"%>
+    <%=link_to "inventer un pseudo","/pseudos/new"%>
+    <%=link_to "voir tous les pseudos","/pseudos"%>
     <%if current_user%>
     <%=button_to "deconnexion",destroy_user_session_path, method: :delete%>
   <%end%>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="/assets/hi.js" type="text/javascript"></script>
   </body>
 </html>

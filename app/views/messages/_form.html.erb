@@ -1,4 +1,4 @@
-<%= form_with(model: message) do |form| %>
+<%= form_with(model: message,html:{onsubmit:"sendmessage();return false;",id:"message-form"}) do |form| %>
   <% if message.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -13,6 +13,7 @@
 
   <div>
     <%= form.hidden_field :room_id %>
+    <%= form.hidden_field :user_id %>
   </div>
 
   <div>

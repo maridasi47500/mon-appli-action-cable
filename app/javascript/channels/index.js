@@ -2,3 +2,4 @@
 import "channels/chat_channel"
 import "channels/appearance_channel"
 import "channels/comments_channel"
+import "channels/pseudo_channel"

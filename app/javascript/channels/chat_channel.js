@@ -51,6 +51,6 @@ const chatChannel = consumer.subscriptions.create({ channel: "ChatChannel", room
 		     }
 		   });
 consumer.subscriptions.create({ channel: "ChatChannel", room: $("#roomname").html() });
-consumer.subscriptions.create({ channel: "ChatChannel", room: $("#roomname").html() });
+//consumer.subscriptions.create({ channel: "ChatChannel", room: $("#roomname").html() });
 chatChannel.send({ sent_by: "Paul", body: "This is a cool chat app." });
 chat.send({ sent_by: "Paul", body: "This is a cool chat app." });

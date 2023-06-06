@@ -28,8 +28,9 @@ class MessagesController < ApplicationController
         ChatJob.perform_now(@message.room,current_user.email,@message.content)
         #NewCommentJob.perform_now(@message.room, @message.content)
 
-        format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
+        #format.html { redirect_to message_url(@message), notice: "Message was successfully created." }
+        #format.json { render :show, status: :created, location: @message }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -68,6 +69,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:room_id, :content)
+      params.require(:message).permit(:room_id, :content,:pseudo_id)
     end
 end
