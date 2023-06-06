@@ -4,3 +4,13 @@ function sendmessage(){
 		        return false;
 
 };
+function choisirpseudo(ev){
+		        var form=$(ev.target);
+		        $.ajax({url:form.attr("href"),type:"POST"});
+		        return false;
+}
+function quitterpseudo(ev){
+		        var form=$(ev.target);
+		        $.ajax({url:form.attr("href"),type:"POST"});
+		        return false;
+}

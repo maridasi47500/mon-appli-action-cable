@@ -18,7 +18,7 @@ consumer.subscriptions.create({ channel: "PseudoChannel" }, {
 
                                                      createLine(data) {
                                                              return `
-                                                                          <article data-pseudo-id="${data["pseudoid"]}">
+                                                                          <article data-user-id="${data["userid"]}" data-pseudo-id="${data["pseudoid"]}">
 								           <img src="/uploads/${data["image"]}" width=50 height=50 />
 								           <p>${data["username"]}</p>
 								           <p>${data["pseudobody"]}</p>

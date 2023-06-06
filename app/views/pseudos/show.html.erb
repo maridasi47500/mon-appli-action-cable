@@ -3,6 +3,7 @@
 <%= render @pseudo %>
 
 <div>
+  <%= link_to "choisir ce pseudo", choisir_pseudo_path(@pseudo),onclick: "choisirpseudo(event);return false;" %> |
   <%= link_to "Edit this pseudo", edit_pseudo_path(@pseudo) %> |
   <%= link_to "Back to pseudos", pseudos_path %>
 

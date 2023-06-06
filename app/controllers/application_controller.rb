@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   after_action :user_activity
 
   def myaction
-    cookies.encrypted[:user_id] = current_user.id
+    cookies.encrypted[:user_id] = current_user.try(:id)
   end
   private
 

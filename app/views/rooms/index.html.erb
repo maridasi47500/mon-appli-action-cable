@@ -3,7 +3,7 @@
 <h1>Rooms</h1>
 <div id="mypseudos">
   <%@pseudos.each do |p|%>
-    <article data-pseudo-id="<%=p.pseudoid%>">
+    <article data-pseudo-id="<%=p.pseudoid%>" data-user-id="<%=p.try(:id)%>">
       <img src="/uploads/<%=p.image%>" width=50 height=50 />
       <p><%=p.username%></p>
       <p><%=p.pseudobody%></p>

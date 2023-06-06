@@ -1,4 +1,4 @@
-<article data-pseudo-id="<%=pseudo.id%>">
+<article data-pseudo-id="<%=pseudo.id%>"  data-current-user-id="<%=pseudo.currentuser.try(:id)%>">
         <img src="/uploads/<%=pseudo.image%>" width=50 height=50 />
               <p><%=pseudo.name%></p>
                     <p><%=pseudo.body%></p>

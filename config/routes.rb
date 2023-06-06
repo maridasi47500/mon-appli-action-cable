@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :pseudos
+  resources :pseudos do
+    member do
+      post "choisir"
+      
+    end
+    collection do
+      post "quitter"
+    end
+  end
   devise_for :users
   resources :users
   resources :comments

@@ -3,7 +3,8 @@ class PseudoJob < ApplicationJob
 
   def perform(*args)
     @pseudo=args[0]
-    ActionCable.server.broadcast("pseudo_channel", { pseudoid:@pseudo.id,pseudobody: @pseudo.body,image:@pseudo.image,username:@pseudo.name })
+    @user=args[1]
+    ActionCable.server.broadcast("pseudo_channel", { pseudoid:@pseudo.id,pseudobody: @pseudo.body,image:@pseudo.image,username:@pseudo.name, userid: @user.id })
 
   end
 end

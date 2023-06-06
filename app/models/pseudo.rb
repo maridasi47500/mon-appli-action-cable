@@ -1,6 +1,6 @@
 class Pseudo < ApplicationRecord
   belongs_to :user
-  has_one :currentuser, foreign_key:"pseuso_id", class_name:"User"
+  has_one :currentuser, foreign_key:"pseudo_id", class_name:"User"
   def image=(uploaded_io)
   File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
       file.write(uploaded_io.read)

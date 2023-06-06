@@ -14,6 +14,7 @@
 
   <body>
     <%=link_to "BIENVENUE",root_path%>
+    <%= link_to "quitter ce pseudo", quitter_pseudos_path, onclick:"quitterpseudo(event);return false;" %> |
     <%=link_to "connexion","/users/sign_in"%>
     <%=link_to "inscription","/users/sign_up"%>
     <%=link_to "editer mon profile","/users/sign_up"%>

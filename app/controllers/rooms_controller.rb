@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
-    @message=Message.new(room_id:@room.id,pseudo_id:current_user.try(:pseudo_id))
+    @message=Message.new(room_id:@room.id,pseudo_id:current_user.try(:pseudo_id),user_id:current_user.try(:id))
   end
 
   # GET /rooms/new

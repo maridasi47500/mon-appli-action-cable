@@ -1,9 +1,18 @@
 class PseudosController < ApplicationController
-  before_action :set_pseudo, only: %i[ show edit update destroy ]
+  before_action :set_pseudo, only: %i[ show edit update destroy choisir ]
+  protect_from_forgery except:[:choisir,:quitter]
 
   # GET /pseudos or /pseudos.json
   def index
     @pseudos = Pseudo.all
+  end
+  def choisir
+        current_user.update(pseudo_id:@pseudo.id)
+        UserAppearanceJob.perform_now(@pseudo,current_user)
+  end
+  def quitter
+        current_user.update(pseudo_id:nil)
+        QuitPseudoJob.perform_now(current_user)
   end
 
   # GET /pseudos/1 or /pseudos/1.json
@@ -26,6 +35,8 @@ class PseudosController < ApplicationController
 
     respond_to do |format|
       if @pseudo.save
+        current_user.update(pseudo_id:@pseudo.id)
+        UserAppearanceJob.perform_now(@pseudo,current_user)
         format.html { redirect_to pseudo_url(@pseudo), notice: "Pseudo was successfully created." }
         format.json { render :show, status: :created, location: @pseudo }
       else
@@ -41,6 +52,7 @@ class PseudosController < ApplicationController
       if @pseudo.update(pseudo_params)
         current_user.update(pseudo_id:@pseudo.id)
         PseudoJob.perform_now(@pseudo,current_user)
+        UserAppearanceJob.perform_now(@pseudo,current_user)
         format.html { redirect_to pseudo_url(@pseudo), notice: "Pseudo was successfully updated." }
         format.json { render :show, status: :ok, location: @pseudo }
       else
